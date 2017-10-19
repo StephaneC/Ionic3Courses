@@ -1,0 +1,17 @@
+<ion-header>
+        <ion-navbar>
+          <ion-title>
+            Home
+          </ion-title>
+        </ion-navbar>
+      </ion-header>
+      
+      <ion-content padding>
+        Les messages   
+        
+        <div>
+            <input type="text" [(ngModel)]="message" placeholder="Your message"/>    
+            <button ion-button (click)="postMessage();" color="light">Send</button>    
+        </div>    
+      </ion-content>
+      
