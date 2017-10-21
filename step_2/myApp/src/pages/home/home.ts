@@ -21,8 +21,8 @@ export class HomePage {
 
   click() {
     this.http.get('http://cesi.cleverapps.io/hello?name='+this.name).subscribe(res => {
-      console.log(res._body);
-      this.displayName = res._body; 
+      console.log(res.text());
+      this.displayName = res.text(); 
     }, (err) => {
       console.log(err);
       alert("error calling http " + err);
@@ -30,9 +30,9 @@ export class HomePage {
   }
 
   clickPing() {
-    this.http.post('http://cesi.cleverapps.io/ping').subscribe(res => {
-      console.log(res._body);
-      this.pong = res._body; 
+    this.http.post('http://cesi.cleverapps.io/ping', {}).subscribe(res => {
+      console.log(res.text());
+      this.pong = res.text(); 
     }, (err) => {
       console.log(err);
       alert("error calling http " + err);
@@ -40,7 +40,8 @@ export class HomePage {
   }
 
   clickPages(){
-    this.navCtrl.push(MessagesPage);
+    this.navCtrl.push(MessagesPage, {      
+    });
   }
 
 }
