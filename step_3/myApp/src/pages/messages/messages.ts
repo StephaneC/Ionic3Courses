@@ -9,7 +9,7 @@ import { Http, Headers } from '@angular/http';
 export class MessagesPage {
 
   public message : string;
-  public messages : any;
+  public messages : any = [];
 
   constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams) {
     this.load();
@@ -17,14 +17,14 @@ export class MessagesPage {
 
   getHeaders() : Headers {
     var headers = new Headers();
+    console.log('adding to header token = '+this.navParams.get('token'));
     headers.append('token', this.navParams.get('token'));
-    headers.append('Content-Type', 'application/x-www-form-urlencoded');
 
     return headers;
   }
 
   load() {
-    this.http.post('http://cesi.cleverapps.io/messages', {}, 
+    this.http.get('http://cesi.cleverapps.io/messages', 
           {headers:this.getHeaders()}).subscribe(res => {
             console.log(res.json());
             this.messages = res.json(); 
@@ -35,10 +35,13 @@ export class MessagesPage {
   }
 
   postMessage() {
-    this.http.post('http://cesi.cleverapps.io/messages', {}, 
-      {headers : this.getHeaders()}).subscribe(res => {
-        console.log(res.json());
-        this.message = res.json();
+    let header : Headers = this.getHeaders();
+    let param :string = 'message='+this.message; 
+
+    header.append('Content-Type', 'application/x-www-form-urlencoded');
+    this.http.post('http://cesi.cleverapps.io/messages', param, 
+      {headers : header}).subscribe(res => {
+        this.load();
       }, (err) => {
         console.log(err);
         alert("error calling http " + err);
