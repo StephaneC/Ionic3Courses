@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { NavController, NavParams} from 'ionic-angular';
+import { Http, Headers } from '@angular/http';
 
 @Component({
   selector: 'page-messages',
@@ -12,13 +12,22 @@ export class MessagesPage {
   public messages : any;
 
   constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams) {
+    this.load();
+  }
+
+  getHeaders() : Headers {
+    var headers = new Headers();
+    headers.append('token', this.navParams.get('token'));
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    return headers;
   }
 
   load() {
     this.http.post('http://cesi.cleverapps.io/messages', {}, 
-          {headers : {'token':this.navParams.get('token')}}).subscribe(res => {
-            console.log(res._body);
-            this.messages = res._body; 
+          {headers:this.getHeaders()}).subscribe(res => {
+            console.log(res.json());
+            this.messages = res.json(); 
           }, (err) => {
             console.log(err);
             alert("error calling http " + err);
@@ -27,9 +36,9 @@ export class MessagesPage {
 
   postMessage() {
     this.http.post('http://cesi.cleverapps.io/messages', {}, 
-      {headers : {'token':this.navParams.get('token')}}).subscribe(res => {
-        console.log(res._body);
-        this.message = '';
+      {headers : this.getHeaders()}).subscribe(res => {
+        console.log(res.json());
+        this.message = res.json();
       }, (err) => {
         console.log(err);
         alert("error calling http " + err);

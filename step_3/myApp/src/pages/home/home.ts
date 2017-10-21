@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { Http } from '@angular/http';
+import { Http, Headers } from '@angular/http';
 
 import { MessagesPage } from '../messages/messages';
 
@@ -18,11 +18,20 @@ export class HomePage {
 
   }
 
+  getHeaders() : Headers {
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+
+    return headers;
+  }
+
   login() {
-    this.http.post('http://cesi.cleverapps.io/signin', {}, {}).subscribe(res => {
+    let body = 'username='+this.username+'&pwd='+this.password;
+
+    this.http.post('http://cesi.cleverapps.io/signin', body, {headers: this.getHeaders()}).subscribe(res => {
       console.log('login succeed');
       this.navCtrl.push(MessagesPage, {
-        token: res._body     
+        token: res.json().token 
       });
     }, (err) => {
       console.log(err);
@@ -32,11 +41,12 @@ export class HomePage {
   }
 
   createAccount() {
-    this.http.post('http://cesi.cleverapps.io/signup', {}, {}).subscribe(res => {
-      console.log('login succeed');
-      this.navCtrl.push(MessagesPage, {
-        token: res._body    
-      });
+    let body = 'username='+this.username+'&pwd='+this.password;
+    
+    this.http.post('http://cesi.cleverapps.io/signup', body, {headers: this.getHeaders()}).subscribe(res => {
+      console.log('create account succeed');
+
+      alert('Account created. Let\'s connect');
     }, (err) => {
       console.log(err);
       alert("Authentication error");
