@@ -6,6 +6,19 @@ Starting a blank project and adding
  * databinding
  * Buttons
 
-#Step 2
+ [Access to step1](https://github.com/StephaneC/IonicCourses/tree/master/step_1/myApp)
+
+# Step 2
 Let's add http request for an elloworld.
 We will see multi pages too!
+
+ [Access to step2](https://github.com/StephaneC/IonicCourses/tree/master/step_2/myApp)
+
+ # Step 3
+Full sample to post notes on ApiCesi server.
+ * Authentication
+ * Post Messages
+ * Get Messages 
+
+ [Access to step3](https://github.com/StephaneC/IonicCourses/tree/master/step_3/myApp)
+
