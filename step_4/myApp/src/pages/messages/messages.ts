@@ -51,7 +51,7 @@ export class MessagesPage {
     header.append('Content-Type', 'application/x-www-form-urlencoded');
     this.http.post('http://cesi.cleverapps.io/messages', param, 
       {headers : header}).subscribe(res => {
-        this.load();
+        this.load(null);
       }, (err) => {
         console.log(err);
         alert("error calling http " + err);
