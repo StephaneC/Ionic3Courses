@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Contact
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+    <ion-content padding>
+        <button ion-button (click)="load();" color="light">refresh</button>  
+        <ion-list>
+          <ion-list-header>
+            Users  
+          </ion-list-header> 
+          <ion-item *ngFor="let user of users">
+            <ion-img width="80" height="80" src="{{user.urlPhoto}}"></ion-img>
+            <ion-label>
+              {{user.username}}
+              </ion-label>
+              <ion-label>
+                  {{user.date}}
+              </ion-label>
+          </ion-item>
+        </ion-list>  
+</ion-content>
