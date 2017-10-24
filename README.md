@@ -22,3 +22,11 @@ Full sample to post notes on ApiCesi server.
 
  [Access to step3](https://github.com/StephaneC/IonicCourses/tree/master/step_3/myApp)
 
+ # Step 3
+Full sample to post notes on ApiCesi server, and step 3 +:
+ * Tabs menu
+ * Pull to refresh
+ * Users list with images 
+
+ [Access to step3](https://github.com/StephaneC/IonicCourses/tree/master/step_4/myApp)
+
