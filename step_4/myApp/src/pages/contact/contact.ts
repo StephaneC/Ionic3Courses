@@ -12,7 +12,7 @@ export class ContactPage {
   public users: any;
 
   constructor(public navCtrl: NavController, public http: Http) {
-    this.load();
+    this.load(null);
   }
 
   getHeaders() : Headers {
@@ -22,14 +22,24 @@ export class ContactPage {
     return headers;
   }
 
-  load() {
+  doRefresh(refresher){
+    this.load(refresher);
+  }
+
+  load(refresher) {
     this.http.get('http://cesi.cleverapps.io/users', 
           {headers:this.getHeaders()}).subscribe(res => {
             console.log(res.json());
-            this.users = res.json(); 
+            this.users = res.json();
+            if(refresher){
+              refresher.complete();
+            } 
           }, (err) => {
             console.log(err);
             alert("error calling http " + err);
+            if(refresher){
+              refresher.complete();
+            } 
           });
   }
 
