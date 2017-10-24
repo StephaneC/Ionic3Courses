@@ -7,25 +7,29 @@
       </ion-header>
       
       <ion-content padding>
-        <button ion-button (click)="load();" color="light">refresh</button>  
-        <ion-list>
-          <ion-list-header>
-            Messages  
-          </ion-list-header> 
-          <ion-item *ngFor="let msg of messages">
-            <ion-label>
-              {{msg.message}}
-            </ion-label>
-            <ion-label>
-              {{msg.username}}
-            </ion-label>
-            <ion-label>
-              {{msg.date}}
-            </ion-label>
+        <ion-refresher (ionRefresh)="doRefresh($event)">
+            <ion-refresher-content>
+                
+            </ion-refresher-content>
+          </ion-refresher> 
 
-          </ion-item>
-        </ion-list>  
-        
+          <ion-list>
+              <ion-list-header>
+                Messages  
+              </ion-list-header> 
+              <ion-item *ngFor="let msg of messages">
+                <ion-label>
+                  {{msg.message}}
+                </ion-label>
+                <ion-label>
+                  {{msg.username}}
+                </ion-label>
+                <ion-label>
+                  {{msg.date}}
+                </ion-label>
+    
+              </ion-item>
+            </ion-list>  
         
         <div>
             <input type="text" [(ngModel)]="message" placeholder="Your message"/>    

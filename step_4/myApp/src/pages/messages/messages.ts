@@ -12,7 +12,7 @@ export class MessagesPage {
   public messages : any = [];
 
   constructor(public navCtrl: NavController, public http: Http, public navParams: NavParams) {
-    this.load();
+    this.load(null);
   }
 
   getHeaders() : Headers {
@@ -23,14 +23,24 @@ export class MessagesPage {
     return headers;
   }
 
-  load() {
+  doRefresh(refresher) {
+    this.load(refresher);
+  }
+
+  load(refresher) {
     this.http.get('http://cesi.cleverapps.io/messages', 
           {headers:this.getHeaders()}).subscribe(res => {
             console.log(res.json());
             this.messages = res.json(); 
+            if(refresher){
+              refresher.complete();
+            }
           }, (err) => {
             console.log(err);
             alert("error calling http " + err);
+            if(refresher){
+              refresher.complete();
+            }
           });
   }
 
