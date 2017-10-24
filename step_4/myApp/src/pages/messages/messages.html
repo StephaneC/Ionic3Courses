@@ -30,10 +30,12 @@
     
               </ion-item>
             </ion-list>  
-        
-        <div>
-            <input type="text" [(ngModel)]="message" placeholder="Your message"/>    
-            <button ion-button (click)="postMessage();" color="light">Send</button>    
-        </div>    
+    
       </ion-content>
+      <ion-footer>
+          <ion-toolbar>
+              <input type="text" [(ngModel)]="message" placeholder="Your message"/>    
+              <button ion-button (click)="postMessage();" color="light">Send</button>    
+            </ion-toolbar>
+        </ion-footer>
       

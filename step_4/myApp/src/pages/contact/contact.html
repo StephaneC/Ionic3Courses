@@ -18,8 +18,10 @@
             Users  
           </ion-list-header> 
           <ion-item *ngFor="let user of users">
-            <ion-img width="80" height="80" src="{{user.urlPhoto}}"></ion-img>
-            <ion-label>
+              <ion-thumbnail item-left *ngIf="user.urlPhoto">
+                  <img height="40" width="40" [src]="user.urlPhoto"/>
+              </ion-thumbnail>
+              <ion-label>
               {{user.username}}
               </ion-label>
               <ion-label>

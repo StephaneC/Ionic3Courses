@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Http, Headers } from '@angular/http';
 
-import { MessagesPage } from '../messages/messages';
 import { TabsPage } from '../tabs/tabs';
 
 @Component({
