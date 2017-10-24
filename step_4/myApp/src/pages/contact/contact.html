@@ -18,15 +18,15 @@
             Users  
           </ion-list-header> 
           <ion-item *ngFor="let user of users">
-              <ion-thumbnail item-left *ngIf="user.urlPhoto">
+              <ion-thumbnail item-start *ngIf="user.urlPhoto">
                   <img height="40" width="40" [src]="user.urlPhoto"/>
               </ion-thumbnail>
-              <ion-label>
+              <h2>
               {{user.username}}
-              </ion-label>
-              <ion-label>
-                  {{user.date}}
-              </ion-label>
+              </h2>
+              <p>
+                 Inscription {{user.date | date: 'HH:mm dd/MM/yyyy'}}
+              </p>
           </ion-item>
         </ion-list>  
 </ion-content>

@@ -18,16 +18,9 @@
                 Messages  
               </ion-list-header> 
               <ion-item *ngFor="let msg of messages">
-                <ion-label>
-                  {{msg.message}}
-                </ion-label>
-                <ion-label>
-                  {{msg.username}}
-                </ion-label>
-                <ion-label>
-                  {{msg.date}}
-                </ion-label>
-    
+                <h4>{{msg.message}}</h4>
+                <p>{{msg.username}}</p>
+                <p><i>{{msg.date | date: 'HH:mm dd/MM/yyyy'}}</i></p>  
               </ion-item>
             </ion-list>  
     
@@ -35,7 +28,7 @@
       <ion-footer>
           <ion-toolbar>
               <input type="text" [(ngModel)]="message" placeholder="Your message"/>    
-              <button ion-button (click)="postMessage();" color="light">Send</button>    
+              <button ion-button (click)="postMessage();" color="light" item-end>Send</button>    
             </ion-toolbar>
         </ion-footer>
       

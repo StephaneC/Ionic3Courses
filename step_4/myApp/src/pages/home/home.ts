@@ -12,7 +12,8 @@ export class HomePage {
 
   public username : string;
   public password : string;
-
+  public urlPhoto : string;
+  
   constructor(public navCtrl: NavController, public http: Http) {
 
   }
@@ -41,7 +42,7 @@ export class HomePage {
   }
 
   createAccount() {
-    let body = 'username='+this.username+'&pwd='+this.password;
+    let body = 'username='+this.username+'&pwd='+this.password+'&urlPhoto='+this.urlPhoto;
     
     this.http.post('http://cesi.cleverapps.io/signup', body, {headers: this.getHeaders()}).subscribe(res => {
       console.log('create account succeed');
