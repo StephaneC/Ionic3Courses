@@ -7,14 +7,8 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
-  public name;  
-
   constructor(public navCtrl: NavController) {
 
   }
 
-  click() {
-    console.log('clicked ' + this.name);
-    alert('hello '+ this.name);
-  }
 }
