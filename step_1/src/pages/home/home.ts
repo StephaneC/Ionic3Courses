@@ -30,11 +30,14 @@ export class HomePage {
     
     this.http.post('http://cesi.cleverapps.io/signup', body, {headers: this.getHeaders()}).subscribe(res => {
       console.log('create account succeed');
-
-      alert('Account created. Let\'s connect');
+      if(res.status === 200){
+        alert('Account created. Let\'s connect');
+      } else {
+        alert("Account created error");
+      }
     }, (err) => {
       console.log(err);
-      alert("Authentication error");
+      alert("Account created error");
     });
   }
 }

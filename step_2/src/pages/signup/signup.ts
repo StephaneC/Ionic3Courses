@@ -30,8 +30,11 @@ export class SignupPage {
     
     this.http.post('http://cesi.cleverapps.io/signup', body, {headers: this.getHeaders()}).subscribe(res => {
       console.log('create account succeed');
-
-      this.navCtrl.pop();
+      if(res.status === 200){
+        this.navCtrl.pop();
+      } else {
+        alert("Create account error");
+      }
     }, (err) => {
       console.log(err);
       alert("Create account error");

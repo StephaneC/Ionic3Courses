@@ -35,11 +35,15 @@ export class HomePage {
     body = body +'&pwd='+this.password;
     
     this.http.post('http://cesi.cleverapps.io/signin', body, {headers: this.getHeaders()}).subscribe(res => {
-      console.log('login succeed');
+      if(res.status === 200){
+        console.log('login succeed');
       
-      this.navCtrl.push(MessagesPage, {  
-        token: res.json().token    
-      });
+        this.navCtrl.push(MessagesPage, {  
+          token: res.json().token    
+        });
+      } else {
+        alert("Authentication error");
+      }
     }, (err) => {
       console.log(err);
       alert("Authentication error");
