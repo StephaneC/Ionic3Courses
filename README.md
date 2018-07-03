@@ -8,3 +8,4 @@
 5. [step 4](./step_4/)  : Un menu latéral/ou en Tab, une liste ... Bref, nous avons un chat opérationnel
 6. [step 5](./step_5/)  : Et si on ajoutais un stockage hors ligne 
 7. [step 6](./step_6/)  : On regarde le theming de l'application ?  
+8. [step 7](./step_7/)  : Ionic et les éléments de configs  

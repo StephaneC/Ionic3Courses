@@ -1,5 +1,5 @@
-# step 6
-Application blanche. 
+# step 4
+Départ du [step 4](../step_4). 
 Ajouts de stockage : la solution du plugin ([doc ionic]pwd
 (https://ionicframework.com/docs/storage/))
 

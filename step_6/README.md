@@ -1,6 +1,6 @@
 # step 6
-Application blanche. 
-Modification du theming pour 
+Départ du [step 5](../step_5). 
+Modification du theming
 
 Nous souhaitons maintenant :
 * identification une seule fois

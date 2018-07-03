@@ -1,5 +1,5 @@
 # step 1
-Application blanche. 
+Départ du [step 1](../step_1). 
 Ajoutons nos premiers composants graphiques pour accéder à la fonction d'authentification de [l'api CESI](http://cesi.cleverapps.io).
 
 ## Ajout des composants graphiques

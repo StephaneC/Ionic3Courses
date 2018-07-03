@@ -1,5 +1,5 @@
 # step 4
-Application blanche. 
+Départ du [step 3](../step_3). 
 Ajouts de composants graphiques
 
 ## Création de nouvelles pages

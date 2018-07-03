@@ -1,5 +1,5 @@
 # step 2
-Application blanche. 
+Départ du [step 1](../step_1). 
 Ajouts de la navigation.
 
 ## Création de nouvelles pages

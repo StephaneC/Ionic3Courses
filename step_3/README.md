@@ -1,4 +1,6 @@
 # step 4
+Départ du [step 2](../step_2). 
+
 Ajouts de nouveaux composants 
 
 ## Composants
