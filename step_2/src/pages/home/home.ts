@@ -34,12 +34,12 @@ export class HomePage {
     let body = 'username='+this.username;
     body = body +'&pwd='+this.password;
     
-    this.http.post('http://cesi.cleverapps.io/signin', body, {headers: this.getHeaders()}).subscribe(res => {
+    this.http.post('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/signin', body, {headers: this.getHeaders()}).subscribe(res => {
       if(res.status === 200){
         console.log('login succeed');
       
         this.navCtrl.push(MessagesPage, {  
-          token: res.json().token    
+          jwt: res.json().jwt    
         });
       } else {
         alert("Authentication error");

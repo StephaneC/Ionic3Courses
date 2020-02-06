@@ -14,8 +14,8 @@ export class TabsPage {
   tab2Root = ContactPage;
 
   constructor(public navParams: NavParams, public navCtrl: NavController) {
-    if(this.navParams.get('token')){
-      localStorage.setItem("token", this.navParams.get('token'));
+    if(this.navParams.get('jwt')){
+      localStorage.setItem("token", this.navParams.get('jwt'));
     } else {
       // si pas de token on quitte
       if(!localStorage.getItem("token")){

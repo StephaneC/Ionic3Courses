@@ -27,7 +27,9 @@ import { ContactPage } from '../pages/contact/contact';
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot({
+      driverOrder: ['sqlite', 'websql', 'indexeddb']
+    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -17,7 +17,7 @@ export class ContactPage {
 
   getHeaders() : Headers {
     var headers = new Headers();
-    headers.append('token', sessionStorage.getItem('token'));
+    headers.append('Authorization', 'Bearer ' +  sessionStorage.getItem('token'));
 
     return headers;
   }
@@ -27,10 +27,10 @@ export class ContactPage {
   }
 
   load(refresher) {
-    this.http.get('http://cesi.cleverapps.io/users', 
+    this.http.get('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/users', 
           {headers:this.getHeaders()}).subscribe(res => {
             console.log(res.json());
-            this.users = res.json();
+            this.users = res.json().users;
             if(refresher){
               refresher.complete();
             } 

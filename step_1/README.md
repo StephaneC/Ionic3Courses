@@ -1,6 +1,6 @@
 # step 1
 Départ du [step 1](../step_1). 
-Ajoutons nos premiers composants graphiques pour accéder à la fonction d'authentification de [l'api CESI](http://cesi.cleverapps.io).
+Ajoutons nos premiers composants graphiques pour accéder à la fonction d'authentification de [l'api CESI](https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev).
 
 ## Ajout des composants graphiques
 Nous allons commencer par créer un formulaire simple de création d'utilisateur.

@@ -13,7 +13,7 @@ export class TabsPage {
   tab2Root = ContactPage;
 
   constructor(public navParams: NavParams) {
-    sessionStorage.setItem("token", this.navParams.get('token'));
+    sessionStorage.setItem("token", this.navParams.get('jwt'));
 
   }
 }

@@ -22,17 +22,17 @@ export class MessagesService {
 
   private getHeaders() : Headers {
     var headers = new Headers();
-    headers.append('token', sessionStorage.getItem('token'));//FIXME
+    headers.append('Authorization', 'Bearer ' +  localStorage.getItem('token'));//FIXME
 
     return headers;
   }
 
   update(){
     // ask to get new content
-    this.http.get('http://cesi.cleverapps.io/messages', 
+    this.http.get('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/messages', 
     {headers:this.getHeaders()}).subscribe(res => {
         if(res.status === 200){
-            var messages = res.json();
+            var messages = res.json().messages;
             this.storage.set('messages', messages); 
             this.messages.next(messages);
         }        
@@ -50,7 +50,7 @@ export class MessagesService {
     let param :string = 'message='+message; 
 
     header.append('Content-Type', 'application/x-www-form-urlencoded');
-    this.http.post('http://cesi.cleverapps.io/messages', param, 
+    this.http.post('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/messages', param, 
       {headers : header}).subscribe(res => {
         this.update();
       }, (err) => {

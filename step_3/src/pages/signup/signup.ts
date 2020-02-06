@@ -28,7 +28,7 @@ export class SignupPage {
     body = body +'&pwd='+this.password;
     body = body + '&urlPhoto='+this.urlPhoto;
     
-    this.http.post('http://cesi.cleverapps.io/signup', body, {headers: this.getHeaders()}).subscribe(res => {
+    this.http.post('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/signup', body, {headers: this.getHeaders()}).subscribe(res => {
       if(res.status === 200){
         this.navCtrl.pop();
       } else {

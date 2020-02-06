@@ -28,7 +28,7 @@ export class HomePage {
     body = body +'&pwd='+this.password;
     body = body + '&urlPhoto='+this.urlPhoto;
     
-    this.http.post('http://cesi.cleverapps.io/signup', body, {headers: this.getHeaders()}).subscribe(res => {
+    this.http.post('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/signup', body, {headers: this.getHeaders()}).subscribe(res => {
       console.log('create account succeed');
       if(res.status === 200){
         alert('Account created. Let\'s connect');

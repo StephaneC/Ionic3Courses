@@ -17,8 +17,8 @@ export class MessagesPage {
 
   getHeaders() : Headers {
     var headers = new Headers();
-    console.log('adding to header token = '+this.navParams.get('token'));
-    headers.append('token', sessionStorage.getItem('token'));
+    console.log('adding to header token = '+this.navParams.get('jwt'));
+    headers.append('Authorization', 'Bearer ' +  sessionStorage.getItem('token'));
 
     return headers;
   }
@@ -28,11 +28,11 @@ export class MessagesPage {
   }
 
   load(refresher) {
-    this.http.get('http://cesi.cleverapps.io/messages', 
+    this.http.get('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/messages', 
           {headers:this.getHeaders()}).subscribe(res => {
             if(res.status === 200){
               console.log(res.json());
-              this.messages = res.json(); 
+              this.messages = res.json().messages;  
             }
             if(refresher){
               refresher.complete();
@@ -51,7 +51,7 @@ export class MessagesPage {
     let param :string = 'message='+this.message; 
 
     header.append('Content-Type', 'application/x-www-form-urlencoded');
-    this.http.post('http://cesi.cleverapps.io/messages', param, 
+    this.http.post('https://suoqix3gpa.execute-api.eu-west-3.amazonaws.com/dev/messages', param, 
       {headers : header}).subscribe(res => {
         if(res.status === 200){
           this.load(null);
